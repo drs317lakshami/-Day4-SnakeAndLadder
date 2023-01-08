@@ -4,32 +4,40 @@ import java.util.Random;
 
 public class SnakeLadder {
 	public static void main(String[] args) {
-		int start;
-
-		start = 0;
-
-		// print the starting position
+		int start = 0;
+		int userPosition = 0;
+		int count = 0;
+		
+		//print the starting position 
 		System.out.println("Player Starting Position will be:~ ");
-		System.out.println(+start); // just print out to start value
-
-		Random random = new Random(); // create an random object
-		int dice = random.nextInt(6) + 1; // Invoke methods and generating numbers
-		System.out.println("dice roll result: " + dice); // print dice roll result
-
-		int userPosition = 0; // Set the new position
-		int cases = random.nextInt(3); // generating number between 0to3
-
-		switch (cases) { // Using switch keyword
+		System.out.println(+start);   //just print out to start value
+		
+		/*
+		 *create instance of random class
+		 *Then Invoke methods
+		 *Generate numbers in the range 1to6
+		 * print dice roll result
+		 */
+		Random random = new Random();     //create an random object
+		while (userPosition != 100) {
+			count++;
+		
+		int dice = random.nextInt(6)+1;   //Invoke methods and generating numbers
+		System.out.println("dice roll result: "+dice);  //print dice roll result
+	    
+		int cases = random.nextInt(3); //generating number between 0to3
+		
+		switch (cases) { //Using switch keyword
 		case 0:
-			System.out.println("No Play!!"); // print statement to be executed
-			break; // break out of the switch block
-
+			System.out.println("No Play!!");   //print statement to be executed
+			break;    //break out of the switch block
+			
 		case 1:
-			System.out.println("Ladder!"); // print statement to be executed
-			userPosition = userPosition + dice;
+			System.out.println("Ladder!");   //print statement to be executed
+			userPosition = userPosition + dice; 
 			break;
-
-		default:
+			
+		default:  
 			System.out.println("Snake!");
 			userPosition = userPosition - dice;
 
@@ -37,7 +45,10 @@ public class SnakeLadder {
 				userPosition = 0;
 			}
 		}
-		System.out.println("Presnt Position of the User: " + userPosition);
+		System.out.println("Presnt Position of the User: " + userPosition); 
 	}
-
+	System.out.println("User has rolled "+count+" times to win!"); 
+	
+	}
+		
 }
